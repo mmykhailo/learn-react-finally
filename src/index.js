@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './main.less';
+import logo from './logo.svg'
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+ReactDOM.render(<App title="Welcome to React" subtitle="To get started, edit src/App.js and save to reload." logoUrl= {logo} />, document.getElementById('root'));
