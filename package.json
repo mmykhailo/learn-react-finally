@@ -18,6 +18,9 @@
     "build-less": "less-loader css-loader style-loader"
   },
   "devDependencies": {
+    "@material/auto-init": "^0.35.0",
+    "@material/button": "^0.35.0",
+    "@material/ripple": "^0.35.0",
     "css-loader": "^0.28.11",
     "less-loader": "^4.1.0",
     "style-loader": "^0.21.0"
