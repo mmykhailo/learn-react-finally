@@ -26,3 +26,12 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.mdc-card {
+  height: 350px;
+  width: 350px;
+}
+button{
+  background: transparent;
+  border: none;
+}
