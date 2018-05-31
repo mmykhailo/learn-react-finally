@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
-import './main.less';
+import './less/main.css';
 import './App.css';
 import '@material/button/dist/mdc.button.min.css';
 import '@material/card/dist/mdc.card.min.css';
-import book1img from "./img/1984.jpg";
-import './main.scss';
 import {MDCRipple} from '@material/ripple';
 
 let initRippleBtns = function () {
@@ -35,7 +33,7 @@ class App extends Component {
                     <AppHeader title = "React" logoUrl={this.props.logoUrl}/>
                     <section className="lib-list">
                         <div className="lib-item">
-                            <img src={book1img} alt="book 1" className="lib-item__img"/>
+                            <img src='public/img/1984.jpg' alt="book 1" className="lib-item__img"/>
                             <h2 className="lib-item__name">
                                 Book 1
                             </h2>

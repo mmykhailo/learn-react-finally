@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import './main.less';
+import './less/main.less';
 import logo from './logo.svg'
 import App from './App';
 

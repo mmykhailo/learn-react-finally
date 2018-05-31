@@ -11,13 +11,12 @@
     "react-scripts": "1.1.4"
   },
   "scripts": {
-    "start": "react-scripts start webpack",
+    "start": "react-scripts start webpack watch-css",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "build-css": "node-less-chokidar scr/ -o public/",
-    "watch-css": "npm run build-css && node-less-chokidar src/ -o src/ --watch --recursive",
-    "build-less": "less-loader css-loader style-loader"
+    "build-css": "less-watch-compiler --run-once --main-file=main.less src/less/ src/less/",
+    "watch-css": "npm run build-css && less-watch-compiler --main-file=main.less src/less/ src"
   },
   "devDependencies": {
     "@material/auto-init": "^0.35.0",
@@ -27,6 +26,7 @@
     "@material/textfield": "^0.35.2",
     "css-loader": "^0.28.11",
     "less-loader": "^4.1.0",
+    "less-watch-compiler": "^1.11.3",
     "style-loader": "^0.21.0"
   }
 }
