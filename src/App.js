@@ -21,8 +21,9 @@ class App extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
     componentDidMount() {
-        const ripple = new MDCRipple(document.querySelector('.btn--rippled'));
-        console.log(document.querySelector('.btn--rippled'));
+        for(var i = 0; i < document.getElementsByClassName('btn--rippled').length; i++){
+            new MDCRipple(document.getElementsByClassName('btn--rippled')[i]);
+        }
     }
     handleClick(){
         console.log('Click handle');
