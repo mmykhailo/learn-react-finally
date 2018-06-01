@@ -1,5 +1,3 @@
-let path = require('path');
-
 let conf = {
 
     module:{
@@ -14,12 +12,6 @@ let conf = {
                 }, {
                     loader: 'less-loader' // compiles Less to CSS
                 }],
-            },
-            {
-                loader: 'scss-loader',
-                options: {
-                    includePaths: ['./node_modules']
-                }
             }
         ]
     }

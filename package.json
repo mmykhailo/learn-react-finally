@@ -11,7 +11,7 @@
     "react-scripts": "1.1.4"
   },
   "scripts": {
-    "start": "react-scripts start webpack watch-css",
+    "start": "react-scripts start webpack, watch-css",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
@@ -27,6 +27,7 @@
     "css-loader": "^0.28.11",
     "less-loader": "^4.1.0",
     "less-watch-compiler": "^1.11.3",
+    "prop-types": "^15.6.1",
     "style-loader": "^0.21.0"
   }
 }

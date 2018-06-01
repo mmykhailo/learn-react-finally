@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
-import './less/main.css';
+import './main.css';
 import './App.css';
 import '@material/button/dist/mdc.button.min.css';
 import '@material/card/dist/mdc.card.min.css';
 import {MDCRipple} from '@material/ripple';
+import book1 from './img/1984.jpg'
+import  PropTypes from 'prop-types';
 
-let initRippleBtns = function () {
-    for (let i = 0; i < document.getElementsByClassName('mdc-btn--rippled').length; i++) {
-        new MDCRipple(document.getElementsByClassName('mdc-btn--rippled')[i]);
+let initRipple = function () {
+    for (let i = 0; i < document.getElementsByClassName('__rippled').length; i++) {
+        new MDCRipple(document.getElementsByClassName('__rippled')[i]);
     }
 };
 
@@ -18,55 +20,18 @@ class App extends Component {
             value: null
         };
     }
-
     componentDidMount() {
-        initRippleBtns();
+
     }
-
-
-
     render() {
         return (
-            <div className="App">
+            <main className="App">
 
                 <main>
-                    <AppHeader title = "React" logoUrl={this.props.logoUrl}/>
-                    <section className="lib-list">
-                        <div className="lib-item">
-                            <img src='public/img/1984.jpg' alt="book 1" className="lib-item__img"/>
-                            <h2 className="lib-item__name">
-                                Book 1
-                            </h2>
-                            <p className="lib-item-description">
-                                Book 1 description
-                            </p>
-                            <div className="list-item__footer">
-                                <button className="list-item__footer_btn foo-button mdc-button mdc-btn--rippled">Прочитана
-                                </button>
-                                <button className="list-item__footer_btn foo-button mdc-button mdc-btn--rippled">Забыть
-                                    книгу)))
-                                </button>
-                            </div>
-
-                        </div>
-                        <div className="mdc-card">
-                            <div className="mdc-card__media mdc-card__media--square">
-                                <div className="mdc-card__media-content">Title</div>
-                            </div>
-                            <div className="mdc-card__actions">
-                                <div className="mdc-card__action-buttons">
-                                    <button className="mdc-button mdc-card__action mdc-card__action--button mdc-btn--rippled">Action 1</button>
-                                    <button className="mdc-button mdc-card__action mdc-card__action--button mdc-btn--rippled">Action 2</button>
-                                </div>
-                                <div className="mdc-card__action-icons">
-                                    <button className="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="Share">share</button>
-                                    <button className="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="More options">more_vert</button>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                    <AppHeader title = {3} logo={this.props.logo}/>
+                    <Lib title = "React" logo={this.props.logo}/>
                 </main>
-            </div>
+            </main>
         );
     }
 }
@@ -87,16 +52,70 @@ class AppHeader extends Component {
             return {score: prevState.score + 1};
         });
     }
-    componentDidMount() {
-        initRippleBtns();
-    }
     render() {
         return (
             <header className="App-header">
                 <div>{this.state.score}</div>
-                <img src={this.props.logoUrl} className="App-logo" alt="logo" onClick={this.handleClick}/>
+                <img src={this.props.logo} className="App-logo" alt="logo" onClick={this.handleClick}/>
                 <h1 className="App-title">{this.props.title}</h1>
             </header>
+        );
+    }
+}
+AppHeader.propTypes = {
+    title: PropTypes.string
+};
+class Lib extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: null,
+        };
+    }
+
+    componentDidMount() {
+
+    }
+    render() {
+        return (
+            <section className="lib-list">
+                <LibItem/>
+            </section>
+
+        );
+    }
+}
+
+class LibItem extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: null,
+        };
+    }
+    componentDidMount() {
+        initRipple();
+    }
+    render() {
+        return (
+            <div className="lib-list__item mdc-card">
+                <div className="mdc-card__primary-action mdc-ripple-upgraded __rippled">
+                    <div className="mdc-card__media">
+                        <div className="mdc-card__media-content">Title</div>
+                        <img src={book1} alt=""/>
+                    </div>
+                    <div className="mdc-card__actions">
+                        <div className="mdc-card__action-buttons">
+                            <button className="mdc-button mdc-card__action mdc-card__action--button __rippled">Action 1</button>
+                            <button className="mdc-button mdc-card__action mdc-card__action--button __rippled">Action 2</button>
+                        </div>
+                        <div className="mdc-card__action-icons">
+                            <button className="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="Share">share</button>
+                            <button className="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="More options">more_vert</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         );
     }
 }

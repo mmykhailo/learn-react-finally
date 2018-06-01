@@ -1,6 +1,9 @@
 body {
-  background-color: red;
+  background-color: grey;
   color: #000;
+}
+.lib-list .mdc-card {
+  background-color: #fff;
 }
 body {
   opacity: .6;
