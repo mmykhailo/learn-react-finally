@@ -25,11 +25,8 @@ class App extends Component {
     render() {
         return (
             <main className="App">
-
-                <main>
-                    <Header title = 'Learn React' logo={this.props.logo}/>
-                    <Lib title = "React" logo={this.props.logo}/>
-                </main>
+                <Header title='Learn React' logo={this.props.logo}/>
+                <Lib title="React" logo={this.props.logo}/>
             </main>
         );
     }

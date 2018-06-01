@@ -28,8 +28,12 @@ class LibItem extends Component {
             <div className="lib-list__item mdc-card">
                 <div className="mdc-card__primary-action mdc-ripple-upgraded __rippled">
                     <div className="mdc-card__media">
-                        <div className="mdc-card__media-content">Title</div>
-                        <img src={book1} alt=""/>
+                        <div className="">
+                            <img src={book1} alt=""/>
+                            <h2>
+                                Book name
+                            </h2>
+                        </div>
                     </div>
                     <div className="mdc-card__actions">
                         <div className="mdc-card__action-buttons">
