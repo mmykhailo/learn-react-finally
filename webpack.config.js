@@ -14,6 +14,10 @@ let conf = {
                 }],
             }
         ]
+    },
+    alias: {
+        'components': path.resolve('src/components'), // This is ours!!
+        'react-native': 'react-native-web'
     }
 };
 

@@ -1,7 +1,10 @@
 body {
-  background-color: green;
+  background-color: grey;
   color: #000;
 }
-body {
-  opacity: .6;
+.lib-list__item {
+  float: left;
+}
+.lib-list .mdc-card {
+  background-color: #fff;
 }

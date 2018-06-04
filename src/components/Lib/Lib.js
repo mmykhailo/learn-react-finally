@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 //components
-import LibItem from '../Lib/LibItem/LibItem'
+import LibItem from '../LibItem/LibItem'
+import book1 from '../../img/1984.jpg'
+
 
 class Lib extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: null,
+
         };
     }
 
@@ -16,10 +18,12 @@ class Lib extends Component {
     render() {
         return (
             <section className="lib-list">
-                <LibItem/>
+                <LibItem bookName = "Book1" favorite = {true} bookImg = {book1}/>
+                <LibItem bookName = "Book1" favorite = {false} bookImg = {book1}/>
             </section>
 
         );
     }
 }
+
 export default Lib;

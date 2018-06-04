@@ -2,6 +2,9 @@ body {
   background-color: grey;
   color: #000;
 }
+.lib-list__item {
+  float: left;
+}
 .lib-list .mdc-card {
   background-color: #fff;
 }

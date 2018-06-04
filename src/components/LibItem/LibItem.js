@@ -2,7 +2,10 @@ import React, {Component} from 'react';
 import '@material/button/dist/mdc.button.min.css';
 import '@material/card/dist/mdc.card.min.css';
 import {MDCRipple} from '@material/ripple';
-import book1 from '../../../img/1984.jpg'
+import  PropTypes from 'prop-types';
+import AddToFavorites from '../formElements/AddToFavorites/AddToFavorites'
+
+//components
 
 
 let initRipple = function () {
@@ -29,9 +32,9 @@ class LibItem extends Component {
                 <div className="mdc-card__primary-action mdc-ripple-upgraded __rippled">
                     <div className="mdc-card__media">
                         <div className="">
-                            <img src={book1} alt=""/>
+                            <img src={this.props.bookImg} alt=""/>
                             <h2>
-                                Book name
+                                {this.props.bookName}
                             </h2>
                         </div>
                     </div>
@@ -41,8 +44,8 @@ class LibItem extends Component {
                             <button className="mdc-button mdc-card__action mdc-card__action--button __rippled">Action 2</button>
                         </div>
                         <div className="mdc-card__action-icons">
+                            <AddToFavorites value = {this.props.favorite}/>
                             <button className="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="Share">share</button>
-                            <button className="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="More options">more_vert</button>
                         </div>
                     </div>
                 </div>
@@ -50,4 +53,10 @@ class LibItem extends Component {
         );
     }
 }
+LibItem.propTypes = {
+    bookName: PropTypes.string.isRequired,
+};
+LibItem.defaultProps = {
+    bookName: "Book name undefined(",
+};
 export default LibItem;
