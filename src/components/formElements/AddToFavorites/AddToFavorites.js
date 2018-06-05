@@ -23,13 +23,17 @@ class AddToFavorites extends Component {
         this.state = {
 
         };
+        this.onChangeFavorite = this.onChangeFavorite.bind(this);
     }
     componentDidMount() {
 
     }
+    onChangeFavorite(){
+        this.props.changeFavorite();
+    }
     render() {
         return (
-            <button className="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="Share">{this.props.value ? 'favorite_border':'favorite'}</button>
+            <button className="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="Share" onClick={() => this.onChangeFavorite()}>{this.props.value ? 'favorite_border':'favorite'}</button>
         );
     }
 }

@@ -15,37 +15,46 @@ let initRipple = function () {
 };
 
 
-
 class LibItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: null,
+            favorite: this.props.favorite,
         };
     }
+
     componentDidMount() {
         initRipple();
     }
+    changeFavorite(id){
+        const newFav = !this.state.favorite;
+        this.setState({favorite: newFav});
+    }
+
     render() {
         return (
             <div className="lib-list__item mdc-card">
                 <div className="mdc-card__primary-action mdc-ripple-upgraded __rippled">
                     <div className="mdc-card__media">
-                        <div className="">
-                            <img src={this.props.bookImg} alt=""/>
-                            <h2>
-                                {this.props.bookName}
-                            </h2>
-                        </div>
+                        <img className="lib-list__item_img" src={this.props.bookImg} alt=""/>
+                        <h2>
+                            {this.props.bookName}
+                        </h2>
                     </div>
                     <div className="mdc-card__actions">
                         <div className="mdc-card__action-buttons">
-                            <button className="mdc-button mdc-card__action mdc-card__action--button __rippled">Action 1</button>
-                            <button className="mdc-button mdc-card__action mdc-card__action--button __rippled">Action 2</button>
+                            <button className="mdc-button mdc-card__action mdc-card__action--button __rippled">Action
+                                1
+                            </button>
+                            <button className="mdc-button mdc-card__action mdc-card__action--button __rippled">Action
+                                2
+                            </button>
                         </div>
                         <div className="mdc-card__action-icons">
-                            <AddToFavorites value = {this.props.favorite}/>
-                            <button className="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="Share">share</button>
+                            <AddToFavorites value={this.state.favorite} onAddFavorite = {this.props.changeFavorite(id)}/>
+                            <button className="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon"
+                                    title="Share">share
+                            </button>
                         </div>
                     </div>
                 </div>

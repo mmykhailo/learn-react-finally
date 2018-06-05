@@ -5,6 +5,9 @@ body {
 .lib-list__item {
   float: left;
 }
+.lib-list__item_img {
+  height: 300px;
+}
 .lib-list .mdc-card {
   background-color: #fff;
 }

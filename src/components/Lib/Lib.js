@@ -13,17 +13,28 @@ class Lib extends Component {
                 {
                     bookName: 'book 1 in lib',
                     favorite: true,
-                    bookImg: book1
+                    bookImg: book1,
+                    id: 1
                 },{
                     bookName: 'book 2 in lib',
                     favorite: false,
-                    bookImg: book2
+                    bookImg: book2,
+                    id: 2
                 },
             ]
 
 
         };
     }
+    /*changeFavorite(id){
+        const newLib = this.state.lib.slice();
+        var changedLibItem = newLib.find(function (obj) { return obj.id === 3; });
+
+/!*
+        this.setState({squares: squares});
+*!/
+    }
+*/
 
     componentDidMount() {
 
