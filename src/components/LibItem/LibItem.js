@@ -29,10 +29,6 @@ class LibItem extends Component {
     componentDidMount() {
         initRipple();
     }
-    changeFavorite(){
-        const newFav = !this.state.favorite;
-        this.setState({favorite: newFav});
-    }
 
     render() {
         return (
@@ -54,7 +50,7 @@ class LibItem extends Component {
                             </button>
                         </div>
                         <div className="mdc-card__action-icons">
-                            <AddToFavorites value={this.state.favorite} changeFavorite = {() => this.changeFavorite()}/>
+                            <AddToFavorites value={this.state.favorite} onChange={this.props.onStatusChange}/>
                             <button className="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon"
                                     title="Share">share
                             </button>

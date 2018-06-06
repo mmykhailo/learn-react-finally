@@ -8,37 +8,15 @@ import {MDCRipple} from '@material/ripple';
 import  PropTypes from 'prop-types';
 
 
-
-let initRipple = function () {
-    for (let i = 0; i < document.getElementsByClassName('__rippled').length; i++) {
-        new MDCRipple(document.getElementsByClassName('__rippled')[i]);
-    }
-};
-
-
-
-class AddToFavorites extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-
-        };
-        this.onChangeFavorite = this.onChangeFavorite.bind(this);
-    }
-    componentDidMount() {
-
-    }
-    onChangeFavorite(){
-        this.props.changeFavorite();
-    }
-    render() {
-        return (
-            <button className="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="Share" onClick={() => this.onChangeFavorite()}>{this.props.value ? 'favorite_border':'favorite'}</button>
-        );
-    }
+function AddToFavorites(props) {
+    return (
+        <button className="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="Share" onClick={props.onChange}>{props.value ? 'favorite_border':'favorite'}</button>
+    );
 }
+
 AddToFavorites.propTypes = {
     value: PropTypes.bool.isRequired,
+    onChange: PropTypes.func.isRequired
 };
 AddToFavorites.defaultProps = {
     value: "Book name undefined(",
