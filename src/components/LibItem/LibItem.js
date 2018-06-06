@@ -21,12 +21,15 @@ class LibItem extends Component {
         this.state = {
             favorite: this.props.favorite,
         };
+/*
+        this.changeFavorite = this.changeFavorite.bind(this);
+*/
     }
 
     componentDidMount() {
         initRipple();
     }
-    changeFavorite(id){
+    changeFavorite(){
         const newFav = !this.state.favorite;
         this.setState({favorite: newFav});
     }
@@ -51,7 +54,7 @@ class LibItem extends Component {
                             </button>
                         </div>
                         <div className="mdc-card__action-icons">
-                            <AddToFavorites value={this.state.favorite} onAddFavorite = {this.props.changeFavorite(id)}/>
+                            <AddToFavorites value={this.state.favorite} changeFavorite = {() => this.changeFavorite()}/>
                             <button className="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon"
                                     title="Share">share
                             </button>
