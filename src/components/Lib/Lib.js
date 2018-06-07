@@ -47,6 +47,7 @@ class Lib extends Component {
         return (
             <section className="lib-list">
                 <LibItem bookName = {this.state.lib[0].bookName} favorite = {this.state.lib[0].favorite} bookImg = {this.state.lib[0].bookImg} onStatusChange = {this.statusChange}/>
+                <LibItem bookName = {this.state.lib[1].bookName} favorite = {this.state.lib[1].favorite} bookImg = {this.state.lib[1].bookImg} onStatusChange = {this.statusChange}/>
             </section>
 
         );
