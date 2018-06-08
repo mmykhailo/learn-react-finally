@@ -1,13 +1,7 @@
 import React, {Component} from 'react';
 import './main.css';
 import './App.css';
-
-import book1 from './img/1984.jpg'
-import  PropTypes from 'prop-types';
-
-
 //Components
-
 import Header from './components/Header/Header'
 import Lib from './components/Lib/Lib'
 

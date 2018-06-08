@@ -4,6 +4,7 @@ import '@material/card/dist/mdc.card.min.css';
 import {MDCRipple} from '@material/ripple';
 import  PropTypes from 'prop-types';
 import AddToFavorites from '../formElements/AddToFavorites/AddToFavorites'
+import Button from '../Button/Button'
 
 //components
 
@@ -21,9 +22,6 @@ class LibItem extends Component {
         this.state = {
             favorite: this.props.favorite,
         };
-/*
-        this.changeFavorite = this.changeFavorite.bind(this);
-*/
     }
 
     componentDidMount() {
@@ -42,17 +40,12 @@ class LibItem extends Component {
                     </div>
                     <div className="mdc-card__actions">
                         <div className="mdc-card__action-buttons">
-                            <button className="mdc-button mdc-card__action mdc-card__action--button __rippled">Action
-                                1
-                            </button>
-                            <button className="mdc-button mdc-card__action mdc-card__action--button __rippled">Action
-                                2
-                            </button>
+                            <Button title='Action 1'/>
+                            <Button title='Action 2'/>
                         </div>
                         <div className="mdc-card__action-icons">
-                            <AddToFavorites value={this.state.favorite} onChange={this.props.onStatusChange}/>
-                            <button className="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon"
-                                    title="Share">share
+                            <AddToFavorites value={this.state.favorite} onAddToFavorites={this.props.onAddToFavorites}/>
+                            <button className="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="Share" >share
                             </button>
                         </div>
                     </div>
