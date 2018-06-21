@@ -40,8 +40,8 @@ class LibItem extends Component {
                     </div>
                     <div className="mdc-card__actions">
                         <div className="mdc-card__action-buttons">
-                            <Button title='Action 1'/>
-                            <Button title='Action 2'/>
+                            <Button>Action 1</Button>
+                            <Button>Action 2</Button>
                         </div>
                         <div className="mdc-card__action-icons">
                             <AddToFavorites value={this.state.favorite} onAddToFavorites={this.props.onAddToFavorites}/>

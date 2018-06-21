@@ -16,9 +16,9 @@ class Form extends Component {
 
     render() {
         return (
-            <form action="" className='form'>
+            <form className='form'>
                 <input type="text" placeholder='Name book'/>
-                <Button title = 'Add book' type = 'submit' test = 'test'/>
+                <Button type = 'submit'>Add book</Button>
             </form>
         );
     }
