@@ -24,22 +24,47 @@ class Lib extends Component {
                     id: 2
                 },
             ]
-
-
         };
+        this.handleAdd = this.handleAdd.bind(this);
     }
     handleAddToFavorites(){
         console.log('Change in lib');
+    }
+    handleAdd(bookName){
+        console.log('Add to lib: ' + bookName + ' id: next');
+        let newBook = {
+            bookName: bookName,
+            favorite: true,
+            bookImg: book1,
+            id: this.nextBookId()
+        };
+        console.log(newBook)
+        let newLib = [...this.state.lib, newBook];
+        this.setState({
+            lib: newLib,
+        });
+        console.log(newLib);
+    }
+    nextBookId(){
+        this._nextBookId = this._nextBookId || Math.max.apply(Math,this.state.lib.map(function(book){return book.id;}));
+        return ++this._nextBookId;
     }
     render() {
         return (
             <div className='lib'>
                 <LibStats lib = {this.state.lib}/>
                 <section className="lib-list">
-                    <LibItem bookName = {this.state.lib[0].bookName} favorite = {this.state.lib[0].favorite} bookImg = {this.state.lib[0].bookImg} onAddToFavorites = {this.handleAddToFavorites}/>
-                    <LibItem bookName = {this.state.lib[1].bookName} favorite = {this.state.lib[1].favorite} bookImg = {this.state.lib[1].bookImg} onAddToFavorites = {this.handleAddToFavorites}/>
+                    {this.state.lib.map(book =>
+                        <LibItem
+                            key = {book.id}
+                            bookName = {book.bookName}
+                            favorite = {book.favorite}
+                            bookImg = {book.bookImg}
+                            onAddToFavorites = {this.handleAddToFavorites}
+                        />
+                    )}
                 </section>
-                <Form/>
+                <Form onAdd={this.handleAdd}/>
             </div>
 
 

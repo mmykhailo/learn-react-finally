@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 function Button(props) {
     return (
@@ -16,4 +17,7 @@ function Button(props) {
         </button>
     );
 }
+Button.propTypes = {
+    children: PropTypes.node,//something you can output*
+};
 export default Button;
