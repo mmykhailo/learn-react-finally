@@ -2,9 +2,22 @@ body{
   background-color: grey;
   color: #000;
 }
+.clearfix{
+  &:after{
+    content: '';
+    clear: both;
+    display: table;
+
+  }
+}
 .lib-list {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   &__item{
     float: left;
+    margin: 20px;
     &_img{
       height: 300px;
     }
@@ -12,6 +25,12 @@ body{
   .mdc-card {
     background-color: #fff;
   }
+  .mdc-card {
+    width: 350px;
+  }
 
+}
+.mdc-text-field .mdc-floating-label{
+  z-index: -1;
 }
 @import "test/test.less";

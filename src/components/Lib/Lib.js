@@ -19,31 +19,62 @@ class Lib extends Component {
                     id: 1
                 }, {
                     bookName: 'book 2 in lib',
-                    favorite: false,
+                    favorite: true,
                     bookImg: book2,
                     id: 2
+                },
+                {
+                    bookName: 'book 3 in lib',
+                    favorite: false,
+                    bookImg: book2,
+                    id: 3
+                },
+                {
+                    bookName: 'book 4 in lib',
+                    favorite: false,
+                    bookImg: book2,
+                    id: 4
+                },
+                {
+                    bookName: 'book 5 in lib',
+                    favorite: false,
+                    bookImg: book2,
+                    id: 5
+                },
+                {
+                    bookName: 'book 6 in lib',
+                    favorite: false,
+                    bookImg: book2,
+                    id: 6
                 },
             ]
         };
         this.handleAdd = this.handleAdd.bind(this);
+        this.handleAddToFavorites = this.handleAddToFavorites.bind(this);
     }
-    handleAddToFavorites(){
-        console.log('Change in lib');
+    handleAddToFavorites(id){
+        let newLib = this.state.lib;
+        for (let i = 0; i < this.state.lib.length; i++){
+            if(newLib[i].id === id){
+                newLib[i].favorite = !newLib[i].favorite;
+                break;
+            }
+        }
+        this.setState({
+            lib: newLib
+        })
     }
     handleAdd(bookName){
-        console.log('Add to lib: ' + bookName + ' id: next');
         let newBook = {
             bookName: bookName,
-            favorite: true,
+            favorite: false,
             bookImg: book1,
             id: this.nextBookId()
         };
-        console.log(newBook)
         let newLib = [...this.state.lib, newBook];
         this.setState({
             lib: newLib,
         });
-        console.log(newLib);
     }
     nextBookId(){
         this._nextBookId = this._nextBookId || Math.max.apply(Math,this.state.lib.map(function(book){return book.id;}));
@@ -53,9 +84,11 @@ class Lib extends Component {
         return (
             <div className='lib'>
                 <LibStats lib = {this.state.lib}/>
+                <Form onAdd={this.handleAdd}/>
                 <section className="lib-list">
                     {this.state.lib.map(book =>
                         <LibItem
+                            id = {book.id}
                             key = {book.id}
                             bookName = {book.bookName}
                             favorite = {book.favorite}
@@ -64,7 +97,6 @@ class Lib extends Component {
                         />
                     )}
                 </section>
-                <Form onAdd={this.handleAdd}/>
             </div>
 
 

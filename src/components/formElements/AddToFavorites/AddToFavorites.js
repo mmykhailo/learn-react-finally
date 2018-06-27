@@ -4,10 +4,9 @@
 import React from 'react';
 import  PropTypes from 'prop-types';
 
-
 function AddToFavorites(props) {
     return (
-        <button className="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="Share" onClick={props.onAddToFavorites}>{props.value ? 'favorite_border':'favorite'}</button>
+        <button className="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="Share" onClick={props.onAddToFavorites}>{props.value ? 'favorite':'favorite_border'}</button>
     );
 }
 

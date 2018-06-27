@@ -27,9 +27,7 @@
   to { transform: rotate(360deg); }
 }
 
-.mdc-card {
-  width: 350px;
-}
+
 button{
   background: transparent;
   border: none;

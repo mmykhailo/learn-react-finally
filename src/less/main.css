@@ -2,6 +2,11 @@ body {
   background-color: grey;
   color: #000;
 }
+.lib-list:after {
+  content: '';
+  clear: both;
+  position: absolute;
+}
 .lib-list__item {
   float: left;
 }

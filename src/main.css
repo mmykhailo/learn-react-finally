@@ -2,12 +2,30 @@ body {
   background-color: grey;
   color: #000;
 }
+.clearfix:after {
+  content: '';
+  clear: both;
+  display: table;
+}
+.lib-list {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 .lib-list__item {
   float: left;
+  margin: 20px;
 }
 .lib-list__item_img {
   height: 300px;
 }
 .lib-list .mdc-card {
   background-color: #fff;
+}
+.lib-list .mdc-card {
+  width: 350px;
+}
+.mdc-text-field .mdc-floating-label {
+  z-index: -1;
 }

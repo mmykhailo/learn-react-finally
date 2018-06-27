@@ -1,16 +1,18 @@
 import React, {Component} from 'react';
 import PropTypes from "prop-types";
-
 //components
-import Button from '../Button/Button'
+import Button from '../Button/Button';
+import Input from './Input'
 
 class Form extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            submitted: false
+            submitted: false,
+            inputValue: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     componentDidMount() {
@@ -21,19 +23,28 @@ class Form extends Component {
         this.setState({
             submitted: true
         });
-        let bookName = this.refs.bookName.value;
+        let bookName = this.state.inputValue;
         if(bookName){
             this.props.onAdd(bookName);
         }
-        this.refs.bookName.value = '';
+        this.setState({
+            inputValue: ''
+        });
+    }
+    handleInputChange(val){
+        this.setState({
+            inputValue: val
+        })
     }
 
     render() {
         return (
-            <form className='form' onSubmit={this.handleSubmit}>
-                <input type="text" placeholder='Name book' ref = 'bookName'/>
-                <Button type = 'submit' foo = "bar">Add book</Button>{/*foo is example. You can pass eny props. And then use them by {...props} in this component*/}
-            </form>
+            <div className='lib__add-book'>
+                <form className='form' onSubmit={this.handleSubmit}>
+                    <Input type="text" placeholderMDC='Name book' value={this.state.inputValue} handleInputChange={this.handleInputChange}/>
+                    <Button type = 'submit' foo = "bar">Add book</Button>{/*foo is example. You can pass eny props. And then use them by {...props} in this component*/}
+                </form>
+            </div>
         );
     }
 }

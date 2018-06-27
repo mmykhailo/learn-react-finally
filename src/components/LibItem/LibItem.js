@@ -22,10 +22,14 @@ class LibItem extends Component {
         this.state = {
             favorite: this.props.favorite,
         };
+        this.onAddToFavorites = this.onAddToFavorites.bind(this);
     }
 
     componentDidMount() {
         initRipple();
+    }
+    onAddToFavorites(){
+        this.props.onAddToFavorites(this.props.id)
     }
 
     render() {
@@ -44,7 +48,7 @@ class LibItem extends Component {
                             <Button>Action 2</Button>
                         </div>
                         <div className="mdc-card__action-icons">
-                            <AddToFavorites value={this.state.favorite} onAddToFavorites={this.props.onAddToFavorites}/>
+                            <AddToFavorites value={this.props.favorite} onAddToFavorites={this.onAddToFavorites}/>
                             <button className="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="Share" >share
                             </button>
                         </div>
@@ -55,7 +59,10 @@ class LibItem extends Component {
     }
 }
 LibItem.propTypes = {
-    bookName: PropTypes.string.isRequired,
+  bookImg: PropTypes.string.isRequired,
+  favorite: PropTypes.bool.isRequired,
+  id: PropTypes.number.isRequired,
+  onAddToFavorites: PropTypes.func.isRequired
 };
 LibItem.defaultProps = {
     bookName: "Book name undefined(",
