@@ -5,6 +5,7 @@ import {MDCRipple} from '@material/ripple';
 import  PropTypes from 'prop-types';
 import AddToFavorites from '../formElements/AddToFavorites/AddToFavorites'
 import Button from '../Button/Button'
+import Input from '../Form/Input'
 
 //components
 
@@ -21,15 +22,57 @@ class LibItem extends Component {
         super(props);
         this.state = {
             favorite: this.props.favorite,
+            editing: true,
+            newName: this.props.bookName
         };
         this.onAddToFavorites = this.onAddToFavorites.bind(this);
+        this.switchEditing = this.switchEditing.bind(this);
+        this.handleEditing = this.handleEditing.bind(this);
+        this.handleEditingSubmit = this.handleEditingSubmit.bind(this);
     }
 
     componentDidMount() {
         initRipple();
     }
+
     onAddToFavorites(){
         this.props.onAddToFavorites(this.props.id)
+    }
+    handleEditing(val){
+        this.setState({
+            newName: val
+        })
+    }
+    handleEditingSubmit(event){
+        event.preventDefault();
+        console.log('submit changes')
+        this.props.onEditing(this.props.id, this.state.newName);
+        this.setState({
+            editing: false
+        })
+
+    }
+    switchEditing(){
+        this.setState({
+            editing: !this.state.editing
+        })
+    }
+    renderEditing(){
+        if(this.state.editing) {
+            return (
+                <div className='lib-list__item_editing'>
+                    <form onSubmit={this.handleEditingSubmit}>
+                        <Input
+                            type="text"
+                            placeholderMDC='Name book'
+                            value={this.state.newName}
+                            handleInputChange={this.handleEditing}
+                        />
+                        <Button type = 'submit'>Save book</Button>
+                    </form>
+                </div>
+            )
+        }
     }
 
     render() {
@@ -49,11 +92,11 @@ class LibItem extends Component {
                         </div>
                         <div className="mdc-card__action-icons">
                             <AddToFavorites value={this.props.favorite} onAddToFavorites={this.onAddToFavorites}/>
-                            <button className="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="Share" >share
-                            </button>
+                            <button className="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="Share" onClick={this.switchEditing}>edit</button>
                         </div>
                     </div>
                 </div>
+                {this.renderEditing()}
             </div>
         );
     }

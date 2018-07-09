@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 //components
-import LibItem from '../LibItem/LibItem'
-import LibStats from '../LibStats/LibStats'
+import LibItem from './LibItem'
+import LibStats from './LibStats'
 import Form from '../Form/Form'
 import book1 from '../../img/1984.jpg'
 import book2 from '../../img/1984(2).jpg'
@@ -51,6 +51,7 @@ class Lib extends Component {
         };
         this.handleAdd = this.handleAdd.bind(this);
         this.handleAddToFavorites = this.handleAddToFavorites.bind(this);
+        this.handleEditing = this.handleEditing.bind(this);
     }
     handleAddToFavorites(id){
         let newLib = this.state.lib;
@@ -76,6 +77,19 @@ class Lib extends Component {
             lib: newLib,
         });
     }
+    handleEditing(id, newName){
+        console.log('editing in lib' + id + ' ' + newName)
+        let newLib = this.state.lib;
+        for (let i = 0; i < this.state.lib.length; i++){
+            if(newLib[i].id === id){
+                newLib[i].bookName = newName;
+                break;
+            }
+        }
+        this.setState({
+            lib: newLib
+        })
+    }
     nextBookId(){
         this._nextBookId = this._nextBookId || Math.max.apply(Math,this.state.lib.map(function(book){return book.id;}));
         return ++this._nextBookId;
@@ -94,6 +108,8 @@ class Lib extends Component {
                             favorite = {book.favorite}
                             bookImg = {book.bookImg}
                             onAddToFavorites = {this.handleAddToFavorites}
+                            onEditing = {this.handleEditing}
+
                         />
                     )}
                 </section>

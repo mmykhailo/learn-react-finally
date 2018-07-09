@@ -7,7 +7,9 @@ import {MDCTextField} from "@material/textfield";
 //components
 
 let initMDCInput = function () {
-    new MDCTextField(document.getElementsByClassName('mdc-text-field')[0]);
+    for (let i = 0; i < document.getElementsByClassName('mdc-text-field').length; i++) {
+        new MDCTextField(document.getElementsByClassName('mdc-text-field')[i]);
+    }
 };
 
 class Input extends Component {
@@ -18,9 +20,11 @@ class Input extends Component {
         };
         this.handleChange = this.handleChange.bind(this);
     }
+
     componentDidMount() {
         initMDCInput();
     }
+
     handleChange(event){
         let val = event.target.value;
         this.setState({
@@ -28,7 +32,6 @@ class Input extends Component {
         });
         this.props.handleInputChange(val);
     }
-
 
     render() {
         return (

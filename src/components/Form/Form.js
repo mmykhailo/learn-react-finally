@@ -41,7 +41,12 @@ class Form extends Component {
         return (
             <div className='lib__add-book'>
                 <form className='form' onSubmit={this.handleSubmit}>
-                    <Input type="text" placeholderMDC='Name book' value={this.state.inputValue} handleInputChange={this.handleInputChange}/>
+                    <Input
+                        type="text"
+                        placeholderMDC='Name book'
+                        value={this.state.inputValue}
+                        handleInputChange={this.handleInputChange}
+                    />
                     <Button type = 'submit' foo = "bar">Add book</Button>{/*foo is example. You can pass eny props. And then use them by {...props} in this component*/}
                 </form>
             </div>

@@ -18,6 +18,6 @@ function Button(props) {
     );
 }
 Button.propTypes = {
-    children: PropTypes.node,//something you can output*
+    children: PropTypes.node,//node is something you can output*
 };
 export default Button;
