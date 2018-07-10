@@ -46,6 +46,24 @@ class LibItem extends Component {
         })
     }
 
+    componentWillReceiveProps(nextProps){//use to manage next props before component update
+/*
+        console.log(nextProps);
+*/
+    }
+    componentWillUpdate(nextProps, nextState){//use to manage next props and state before component update
+        /*console.log(nextProps);
+        console.log(nextState);*/
+    }
+    shouldComponentUpdate(nextProps, nextState){//return bool. if false component wont be visually update
+        return true
+    }
+    componentDidUpdate(prevProps, prevState){//After component did update
+
+    }
+    componentWillUnmount(){//Before component is removed
+
+    }
 
     handleEditingSubmit(event){
         event.preventDefault();
