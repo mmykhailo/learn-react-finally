@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import '@material/button/dist/mdc.button.min.css';
-import '@material/card/dist/mdc.card.min.css';
-import {MDCRipple} from '@material/ripple';
+import '../../../node_modules/@material/button/dist/mdc.button.min.css';
+import '../../../node_modules/@material/card/dist/mdc.card.min.css';
+import {MDCRipple} from '../../../node_modules/@material/ripple';
 import  PropTypes from 'prop-types';
 import AddToFavorites from '../formElements/AddToFavorites/AddToFavorites'
 import Button from '../Button/Button'

@@ -29,3 +29,6 @@ body {
 .mdc-text-field .mdc-floating-label {
   z-index: -1;
 }
+.timer .timer__btns button {
+  color: #ffffff !important;
+}

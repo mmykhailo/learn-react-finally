@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import  PropTypes from 'prop-types';
 
+// components
+import Timer from '../Timer/Timer'
 
 class Header extends Component {
     constructor(props) {
@@ -20,6 +22,7 @@ class Header extends Component {
     render() {
         return (
             <header className="App-header">
+                <Timer/>
                 <div>{this.state.score}</div>
                 <img src={this.props.logo} className="App-logo" alt="logo" onClick={this.handleClick}/>
                 <h1 className="App-title">{this.props.title}</h1>
