@@ -22,41 +22,50 @@ class LibItem extends Component {
         super(props);
         this.state = {
             favorite: this.props.favorite,
-            editing: true,
+            editing: false,
             newName: this.props.bookName
         };
-        this.onAddToFavorites = this.onAddToFavorites.bind(this);
+        this.handleAddToFavorites = this.handleAddToFavorites.bind(this);
         this.switchEditing = this.switchEditing.bind(this);
         this.handleEditing = this.handleEditing.bind(this);
         this.handleEditingSubmit = this.handleEditingSubmit.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     componentDidMount() {
         initRipple();
     }
 
-    onAddToFavorites(){
+    handleAddToFavorites(){
         this.props.onAddToFavorites(this.props.id)
     }
+
     handleEditing(val){
         this.setState({
             newName: val
         })
     }
+
+
     handleEditingSubmit(event){
         event.preventDefault();
-        console.log('submit changes')
+        console.log('submit changes');
         this.props.onEditing(this.props.id, this.state.newName);
         this.setState({
             editing: false
         })
-
     }
+    handleDelete(){
+        console.log('delete in item');
+        this.props.onDelete(this.props.id)
+    }
+
     switchEditing(){
         this.setState({
             editing: !this.state.editing
         })
     }
+
     renderEditing(){
         if(this.state.editing) {
             return (
@@ -87,11 +96,11 @@ class LibItem extends Component {
                     </div>
                     <div className="mdc-card__actions">
                         <div className="mdc-card__action-buttons">
-                            <Button>Action 1</Button>
+                            <Button onClick = {this.handleDelete}>Delete</Button>
                             <Button>Action 2</Button>
                         </div>
                         <div className="mdc-card__action-icons">
-                            <AddToFavorites value={this.props.favorite} onAddToFavorites={this.onAddToFavorites}/>
+                            <AddToFavorites value={this.props.favorite} onAddToFavorites={this.handleAddToFavorites}/>
                             <button className="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="Share" onClick={this.switchEditing}>edit</button>
                         </div>
                     </div>
@@ -107,6 +116,7 @@ LibItem.propTypes = {
   id: PropTypes.number.isRequired,
   onAddToFavorites: PropTypes.func.isRequired
 };
+
 LibItem.defaultProps = {
     bookName: "Book name undefined(",
 };

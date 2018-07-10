@@ -13,7 +13,6 @@ class Header extends Component {
 
     }
     handleClick() {
-        console.log('Click handle');
         this.setState((prevState, props) => {
             return {score: prevState.score + 1};
         });

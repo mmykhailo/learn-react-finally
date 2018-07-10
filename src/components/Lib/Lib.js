@@ -52,19 +52,21 @@ class Lib extends Component {
         this.handleAdd = this.handleAdd.bind(this);
         this.handleAddToFavorites = this.handleAddToFavorites.bind(this);
         this.handleEditing = this.handleEditing.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
+
     handleAddToFavorites(id){
-        let newLib = this.state.lib;
-        for (let i = 0; i < this.state.lib.length; i++){
-            if(newLib[i].id === id){
-                newLib[i].favorite = !newLib[i].favorite;
-                break;
+        let newLib = this.state.lib.map(book => {
+            if(book.id === id){
+                book.favorite = !book.favorite;
             }
-        }
+            return book;
+        });
         this.setState({
             lib: newLib
         })
     }
+
     handleAdd(bookName){
         let newBook = {
             bookName: bookName,
@@ -77,23 +79,35 @@ class Lib extends Component {
             lib: newLib,
         });
     }
+
     handleEditing(id, newName){
         console.log('editing in lib' + id + ' ' + newName)
-        let newLib = this.state.lib;
-        for (let i = 0; i < this.state.lib.length; i++){
-            if(newLib[i].id === id){
-                newLib[i].bookName = newName;
-                break;
+        let newLib = this.state.lib.map(book => {
+            if(book.id === id){
+                book.bookName = newName;
             }
-        }
+            return book;
+        });
         this.setState({
             lib: newLib
         })
     }
+    handleDelete(id){
+        console.log('delete in lib' + id);
+        let index = this.state.lib.findIndex(x => x.id === id);
+        console.log(index);
+        let newLib = this.state.lib;
+        newLib.splice(index, 1);
+        this.setState({
+            lib: newLib
+        })
+    }
+
     nextBookId(){
         this._nextBookId = this._nextBookId || Math.max.apply(Math,this.state.lib.map(function(book){return book.id;}));
         return ++this._nextBookId;
     }
+
     render() {
         return (
             <div className='lib'>
@@ -109,13 +123,11 @@ class Lib extends Component {
                             bookImg = {book.bookImg}
                             onAddToFavorites = {this.handleAddToFavorites}
                             onEditing = {this.handleEditing}
-
+                            onDelete = {this.handleDelete}
                         />
                     )}
                 </section>
             </div>
-
-
         );
     }
 }
