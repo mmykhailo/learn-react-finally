@@ -12,7 +12,7 @@ class Lib extends Component {
         super(props);
         this.state = {
             lib: [
-                {
+                /*{
                     bookName: 'book 1 in lib',
                     favorite: true,
                     bookImg: book1,
@@ -46,13 +46,21 @@ class Lib extends Component {
                     favorite: false,
                     bookImg: book2,
                     id: 6
-                },
+                },*/
             ]
         };
         this.handleAdd = this.handleAdd.bind(this);
         this.handleAddToFavorites = this.handleAddToFavorites.bind(this);
         this.handleEditing = this.handleEditing.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
+    }
+    componentDidMount(){
+        fetch('http://localhost:3001/api/lib')
+            .then(res => res.json())
+            .then(lib => this.setState({
+                lib: lib
+            }))
+            .catch(error=> console.error(error));
     }
 
     handleAddToFavorites(id){

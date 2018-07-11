@@ -1,0 +1,33 @@
+[
+    {
+        "bookName": "book 1 in lib",
+        "favorite": true,
+        "id": 1
+    },
+   {
+        "bookName": "book 1 in lib",
+        "favorite": true,
+        "id": 2
+    },
+   {
+        "bookName": "book 1 in lib",
+        "favorite": true,
+        "id": 3
+    },
+   {
+        "bookName": "book 1 in lib",
+        "favorite": true,
+        "id": 4
+    },
+   {
+        "bookName": "book 1 in lib",
+        "favorite": true,
+        "id": 5
+    },
+   {
+        "bookName": "book 1 in lib",
+        "favorite": true,
+        "id": 6
+    }
+
+]

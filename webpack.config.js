@@ -12,17 +12,21 @@ let conf = {
                 }, {
                     loader: 'less-loader' // compiles Less to CSS
                 }],
-            }
-        ]
+            },
+
+        ],
+
     },
     alias: {
         'components': path.resolve('src/components'), // This is ours!!
         'react-native': 'react-native-web'
+    },
+    devServer:{
+        proxy:{
+            "/api": "http://localhost:3001/api/lib"
+        }
     }
+
+
 };
 
-module.exports = (env, options) => {
-    let production = options.mode === 'production';
-    conf.devtool = production ? false : 'eval-sourcemap';
-    return conf;
-};
