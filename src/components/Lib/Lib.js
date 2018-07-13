@@ -11,41 +11,7 @@ class Lib extends Component {
         super(props);
         this.state = {
             lib: [
-                /*{
-                    bookName: 'book 1 in lib',
-                    favorite: true,
-                    bookImg: book1,
-                    id: 1
-                }, {
-                    bookName: 'book 2 in lib',
-                    favorite: true,
-                    bookImg: book2,
-                    id: 2
-                },
-                {
-                    bookName: 'book 3 in lib',
-                    favorite: false,
-                    bookImg: book2,
-                    id: 3
-                },
-                {
-                    bookName: 'book 4 in lib',
-                    favorite: false,
-                    bookImg: book2,
-                    id: 4
-                },
-                {
-                    bookName: 'book 5 in lib',
-                    favorite: false,
-                    bookImg: book2,
-                    id: 5
-                },
-                {
-                    bookName: 'book 6 in lib',
-                    favorite: false,
-                    bookImg: book2,
-                    id: 6
-                },*/
+
             ]
         };
         this.handleAdd = this.handleAdd.bind(this);

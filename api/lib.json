@@ -3,36 +3,36 @@
     "bookName": "book 1 in lib",
     "favorite": false,
     "id": 1,
-    "bookImg": "http://localhost:3000/img/1984(2).jpg"
+    "bookImg": "/img/1984(2).jpg"
   },
   {
     "bookName": "book 2 in lib",
     "favorite": false,
     "id": 2,
-    "bookImg": "http://localhost:3000/img/1984(2).jpg"
+    "bookImg": "/img/1984(2).jpg"
   },
   {
     "bookName": "book 3 in lib",
     "favorite": false,
     "id": 3,
-    "bookImg": "http://localhost:3000/img/1984(2).jpg"
+    "bookImg": "/img/1984(2).jpg"
   },
   {
     "bookName": "book 4 in lib",
     "favorite": false,
     "id": 4,
-    "bookImg": "http://localhost:3000/img/1984(2).jpg"
+    "bookImg": "/img/1984(2).jpg"
   },
   {
     "bookName": "book 5 in lib",
     "favorite": false,
     "id": 5,
-    "bookImg": "http://localhost:3000/img/1984(2).jpg"
+    "bookImg": "/img/1984(2).jpg"
   },
   {
     "bookName": "book 6 in lib",
     "favorite": false,
     "id": 6,
-    "bookImg": "http://localhost:3000/img/1984(2).jpg"
+    "bookImg": "/img/1984(2).jpg"
   }
 ]
