@@ -20,13 +20,5 @@ let conf = {
     alias: {
         'components': path.resolve('src/components'), // This is ours!!
         'react-native': 'react-native-web'
-    },
-    devServer:{
-        proxy:{
-            "/api": "http://localhost:3001/api/lib"
-        }
     }
-
-
 };
-

@@ -55,7 +55,7 @@ class Lib extends Component {
         this.handleDelete = this.handleDelete.bind(this);
     }
     componentDidMount(){
-        fetch('http://localhost:3001/api/lib')
+        fetch('/api/lib')
             .then(res => res.json())
             .then(lib => this.setState({
                 lib: lib
