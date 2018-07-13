@@ -3,8 +3,7 @@ import React, {Component} from 'react';
 import LibItem from './LibItem'
 import LibStats from './LibStats'
 import Form from '../Form/Form'
-import book1 from '../../img/1984.jpg'
-import book2 from '../../img/1984(2).jpg'
+
 
 
 class Lib extends Component {
@@ -80,7 +79,7 @@ class Lib extends Component {
         let newBook = {
             bookName: bookName,
             favorite: false,
-            bookImg: book1,
+            bookImg: "http://localhost:3000/img/1984(2).jpg",
             id: this.nextBookId()
         };
         let newLib = [...this.state.lib, newBook];
