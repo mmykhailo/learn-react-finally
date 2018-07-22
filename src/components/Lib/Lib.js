@@ -64,8 +64,6 @@ class Lib extends Component {
     }
 
     handleAddToFavorites(id) {
-
-
         axios.patch(`/api/lib/${id}`)
             .then(response => {
                     let newLib = this.state.lib.map(book => {
@@ -103,16 +101,24 @@ class Lib extends Component {
 
 
     handleEditing(id, newName) {
-        console.log('editing in lib' + id + ' ' + newName)
-        let newLib = this.state.lib.map(book => {
-            if (book.id === id) {
-                book.bookName = newName;
-            }
-            return book;
-        });
-        this.setState({
-            lib: newLib
-        })
+
+
+
+        axios.put(`/api/lib/${id}`, {newName})
+            .then(response => {
+                console.log('editing in lib' + id + ' ' + newName)
+                const newLib = this.state.lib.map(book => {
+                    if (book.id === id) {
+                        console.log(id)
+                        book.bookName = response.data.bookName;
+                    }
+                    return book;
+                });
+                this.setState({
+                    lib: newLib
+                })
+                }
+            );
     }
 
     handleDelete(id) {

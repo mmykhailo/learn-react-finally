@@ -115,7 +115,7 @@ class LibItem extends Component {
                     <div className="mdc-card__actions">
                         <div className="mdc-card__action-buttons">
                             <Button onClick = {this.handleDelete}>Delete</Button>
-                            <Button>Action 2</Button>
+                            <Button>Action {this.props.id}</Button>
                         </div>
                         <div className="mdc-card__action-icons">
                             <AddToFavorites value={this.props.favorite} onAddToFavorites={this.handleAddToFavorites}/>

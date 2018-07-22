@@ -41,7 +41,7 @@ app.put('/api/lib/:id', (req, res) => {
 
     if(!libItem) return res.sendStatus(404);
 
-    libItem.bookName = req.body.bookName || libItem.bookName;
+    libItem.bookName = req.body.newName || libItem.bookName;
 
     res.json(libItem);
 });
