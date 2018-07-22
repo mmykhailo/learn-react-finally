@@ -26,15 +26,14 @@ app.get('/api/lib', (req, res) => {
     res.send(lib);
 });
 app.post('/api/lib', (req, res) => {
-    const lib = {
-        id: nextId++,
-        bookName: req.body.bookName,
-        favorite: false
+    const newItem = {
+        "id": nextId++,
+        "bookName": req.body.bookName,
+        "favorite": req.body.favorite,
+        "bookImg": req.body.bookImg
     };
-
-    lib.push(lib);
-
-    res.send(lib);
+    lib.push(newItem);
+    res.send(newItem);
 });
 
 app.put('/api/lib/:id', (req, res) => {

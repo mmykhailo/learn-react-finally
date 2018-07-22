@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import LibItem from './LibItem'
 import LibStats from './LibStats'
 import Form from '../Form/Form'
+import axios from 'axios'
 
 
 
@@ -11,7 +12,41 @@ class Lib extends Component {
         super(props);
         this.state = {
             lib: [
-
+                /*{
+                    bookName: 'book 1 in lib',
+                    favorite: true,
+                    bookImg: "/img/1984(2).jpg",
+                    id: 1
+                }, {
+                    bookName: 'book 2 in lib',
+                    favorite: true,
+                    bookImg: "/img/1984(2).jpg",
+                    id: 2
+                },
+                {
+                    bookName: 'book 3 in lib',
+                    favorite: false,
+                    bookImg: "/img/1984(2).jpg",
+                    id: 3
+                },
+                {
+                    bookName: 'book 4 in lib',
+                    favorite: false,
+                    bookImg: "/img/1984(2).jpg",
+                    id: 4
+                },
+                {
+                    bookName: 'book 5 in lib',
+                    favorite: false,
+                    bookImg: "/img/1984(2).jpg",
+                    id: 5
+                },
+                {
+                    bookName: 'book 6 in lib',
+                    favorite: false,
+                    bookImg: "/img/1984(2).jpg",
+                    id: 6
+                }*/
             ]
         };
         this.handleAdd = this.handleAdd.bind(this);
@@ -20,8 +55,8 @@ class Lib extends Component {
         this.handleDelete = this.handleDelete.bind(this);
     }
     componentDidMount(){
-        fetch('/api/lib')
-            .then(res => res.json())
+        axios('/api/lib')
+            .then(res => res.data)
             .then(lib => this.setState({
                 lib: lib
             }))
@@ -41,18 +76,24 @@ class Lib extends Component {
     }
 
 
-    handleAdd(bookName){
+    handleAdd(bookName) {
+
         let newBook = {
             bookName: bookName,
             favorite: false,
-            bookImg: "http://localhost:3000/img/1984(2).jpg",
-            id: this.nextBookId()
+            bookImg: "/img/1984(2).jpg"
         };
-        let newLib = [...this.state.lib, newBook];
-        this.setState({
-            lib: newLib,
-        });
+        axios.post('/api/lib', newBook)
+            .then(res => res.data)
+            .then(newBook => {
+                let newLib = [...this.state.lib, newBook];
+                this.setState({
+                    lib: newLib,
+                });
+                }
+            );
     }
+
 
     handleEditing(id, newName){
         console.log('editing in lib' + id + ' ' + newName)
@@ -77,10 +118,10 @@ class Lib extends Component {
         })
     }
 
-    nextBookId(){
+    /*nextBookId(){
         this._nextBookId = this._nextBookId || Math.max.apply(Math,this.state.lib.map(function(book){return book.id;}));
         return ++this._nextBookId;
-    }
+    }*/
 
     render() {
         return (
