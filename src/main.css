@@ -32,3 +32,17 @@ body {
 .timer .timer__btns button {
   color: #ffffff !important;
 }
+.lib-list__item-animate-enter {
+  opacity: 0;
+}
+.lib-list__item-animate-enter.lib-list__item-animate-enter-active {
+  opacity: 1;
+  transition: all ease 1s;
+}
+.lib-list__item-animate-leave {
+  opacity: 1;
+}
+.lib-list__item-animate-leave.lib-list__item-animate-leave-active {
+  opacity: 0;
+  transition: all ease 1s;
+}

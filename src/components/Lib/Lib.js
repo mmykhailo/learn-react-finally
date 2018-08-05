@@ -4,6 +4,7 @@ import LibItem from './LibItem'
 import LibStats from './LibStats'
 import Form from '../Form/Form'
 import axios from 'axios'
+import ReactCSSTransionGroup from 'react-addons-css-transition-group'
 
 
 class Lib extends Component {
@@ -11,41 +12,7 @@ class Lib extends Component {
         super(props);
         this.state = {
             lib: [
-                /*{
-                 bookName: 'book 1 in lib',
-                 favorite: true,
-                 bookImg: "/img/1984(2).jpg",
-                 id: 1
-                 }, {
-                 bookName: 'book 2 in lib',
-                 favorite: true,
-                 bookImg: "/img/1984(2).jpg",
-                 id: 2
-                 },
-                 {
-                 bookName: 'book 3 in lib',
-                 favorite: false,
-                 bookImg: "/img/1984(2).jpg",
-                 id: 3
-                 },
-                 {
-                 bookName: 'book 4 in lib',
-                 favorite: false,
-                 bookImg: "/img/1984(2).jpg",
-                 id: 4
-                 },
-                 {
-                 bookName: 'book 5 in lib',
-                 favorite: false,
-                 bookImg: "/img/1984(2).jpg",
-                 id: 5
-                 },
-                 {
-                 bookName: 'book 6 in lib',
-                 favorite: false,
-                 bookImg: "/img/1984(2).jpg",
-                 id: 6
-                 }*/
+
             ]
         };
         this.handleAdd = this.handleAdd.bind(this);
@@ -99,11 +66,7 @@ class Lib extends Component {
             );
     }
 
-
     handleEditing(id, newName) {
-
-
-
         axios.put(`/api/lib/${id}`, {newName})
             .then(response => {
                 console.log('editing in lib' + id + ' ' + newName)
@@ -136,17 +99,18 @@ class Lib extends Component {
 
     }
 
-    /*nextBookId(){
-     this._nextBookId = this._nextBookId || Math.max.apply(Math,this.state.lib.map(function(book){return book.id;}));
-     return ++this._nextBookId;
-     }*/
-
     render() {
         return (
             <div className='lib'>
                 <LibStats lib={this.state.lib}/>
                 <Form onAdd={this.handleAdd}/>
-                <section className="lib-list">
+                <ReactCSSTransionGroup
+                    component='section'
+                    className='lib-list'
+                    transitionName = 'lib-list__item-animate'
+                    transitionEnterTimeout = {1000}
+                    transitionLeaveTimeout = {1000}
+                    >
                     {this.state.lib.map(book =>
                         <LibItem
                             id={book.id}
@@ -159,7 +123,7 @@ class Lib extends Component {
                             onDelete={this.handleDelete}
                         />
                     )}
-                </section>
+                </ReactCSSTransionGroup>
             </div>
         );
     }
