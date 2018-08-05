@@ -3,7 +3,6 @@ import './main.css';
 import './App.css';
 //Components
 import Header from './components/Header/Header'
-import Lib from './components/Lib/Lib'
 
 
 class App extends Component {
@@ -20,7 +19,7 @@ class App extends Component {
         return (
             <main className="App">
                 <Header title='Learn React' logo={this.props.logo}/>
-                <Lib title="React" logo={this.props.logo}/>
+                {this.props.children}
             </main>
         );
     }
