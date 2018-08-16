@@ -7,13 +7,10 @@ import './index.css';
 import './less/main.less';
 import logo from './logo.svg'
 import App from './App';
-import Lib from './components/Lib/Lib'
 
 
 ReactDOM.render(
-    <HashRouter>
-        <Route path="/" component={() => <App logo= {logo}/>}>
-            <Route component={Lib} path='lib'/>
-        </Route>
-    </HashRouter>
-    , document.getElementById('root'));
+    <App title="Welcome to React" subtitle="To get started, edit src/App.js and save to reload." logo= {logo} />
+    ,document.getElementById('root')
+);
+
